@@ -1,26 +1,27 @@
 # IoT Sensor Data Collection System
 
-This project is a cloud-based IoT platform that collects, stores, and processes sensor data.
+A cloud-based IoT platform for collecting, storing, retrieving, and processing sensor data.
 
-## Technologies
+## Technologies Used
 
+- Python
 - Flask
 - SQLite
 - Docker
 - Hadoop Streaming
 
-## Features
+## Main Features
 
-- Store sensor measurements
-- Retrieve sensor data by time interval
+- Collect and store sensor measurements
+- Retrieve sensor data based on time intervals
 - Export data by sensor type
-- Add and delete sensor types
-- Distributed aggregation with Hadoop
+- Manage sensor types by adding or deleting entries
+- Perform distributed data aggregation using Hadoop Streaming
 
 ## Documentation
 
-- [Project Report](docs/project-report.pdf)
+- [Project Report](docs/IoT Project Guidelines.pdf)
 
-## Hand-Drawn System Schema
+## System Schema
 
 ![Hand-Drawn System Schema](docs/handdrawn-schema.jpg)

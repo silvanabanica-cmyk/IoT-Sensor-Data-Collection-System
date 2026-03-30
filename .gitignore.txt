@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+*.db
+*.swp
+app/exports/
+app/data/
+app/*.txt
+hadoop/*.txt
+.env

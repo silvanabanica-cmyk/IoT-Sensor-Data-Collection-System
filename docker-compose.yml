@@ -1,0 +1,96 @@
+version: "3.8"
+
+services:
+  flask-app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.flask
+    container_name: flask-app
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./app/data:/app/data
+    networks:
+      - iot-net
+
+  sensor1:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.sensor
+    container_name: sensor1
+    environment:
+      SENSOR_ID: 1
+      LAT: 45.10
+      LON: 9.20
+      SENSOR_TYPE: Temperature Sensor
+      FLASK_URL: http://flask-app:5000
+      INTERVAL: 10
+    depends_on:
+      - flask-app
+    networks:
+      - iot-net
+
+  sensor2:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.sensor
+    container_name: sensor2
+    environment:
+      SENSOR_ID: 2
+      LAT: 45.12
+      LON: 9.25
+      SENSOR_TYPE: Pressure Sensor
+      FLASK_URL: http://flask-app:5000
+      INTERVAL: 12
+    depends_on:
+      - flask-app
+    networks:
+      - iot-net
+
+  sensor3:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.sensor
+    container_name: sensor3
+    environment:
+      SENSOR_ID: 3
+      LAT: 45.15
+      LON: 9.30
+      SENSOR_TYPE: CO2 Sensor
+      FLASK_URL: http://flask-app:5000
+      INTERVAL: 15
+    depends_on:
+      - flask-app
+    networks:
+      - iot-net
+
+ 
+  hadoop-master:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.hadoop
+    container_name: hadoop-master
+    networks:
+      - iot-net
+    depends_on:
+      - flask-app
+
+  hadoop-worker1:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.hadoop
+    container_name: hadoop-worker1
+    networks:
+      - iot-net
+
+  hadoop-worker2:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.hadoop
+    container_name: hadoop-worker2
+    networks:
+      - iot-net
+
+networks:
+  iot-net:
+    driver: bridge

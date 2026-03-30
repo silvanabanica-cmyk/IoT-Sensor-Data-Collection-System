@@ -1,0 +1,2 @@
+sensor_id,latitude,longitude,timestamp_utc,value
+1,45.1,9.2,2025-02-24T12:34:00Z,13.9

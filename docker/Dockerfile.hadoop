@@ -1,0 +1,24 @@
+FROM python:3.11-slim
+
+WORKDIR /hadoop
+RUN apt-get update && apt-get install -y \
+    openjdk-21-jdk \
+    wget \
+    curl \
+    openssh-client \
+    rsync \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+ENV HADOOP_VERSION=3.3.6
+ENV HADOOP_HOME=/opt/hadoop
+ENV PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+
+RUN wget https://downloads.apache.org/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz \
+    && tar -xzf hadoop-${HADOOP_VERSION}.tar.gz -C /opt/ \
+    && mv /opt/hadoop-${HADOOP_VERSION} $HADOOP_HOME \
+    && rm hadoop-${HADOOP_VERSION}.tar.gz
+
+COPY . /app/app.py
+
+CMD ["tail", "-f", "/dev/null"]

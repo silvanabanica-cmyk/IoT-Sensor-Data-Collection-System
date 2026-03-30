@@ -1,0 +1,10 @@
+FROM python:3.11-slim
+
+WORKDIR /sensor
+
+COPY sensors/requirements.txt /sensor/requirements.txt
+RUN pip install --no-cache-dir -r /sensor/requirements.txt
+
+COPY sensors /sensor
+
+CMD ["python", "/sensor/sensor.py"]

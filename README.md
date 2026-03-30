@@ -25,3 +25,19 @@ This project is a cloud-based IoT platform that collects, stores, and processes 
 
 !\[Hand-Drawn System Schema](docs/handdrawn-schema.jpg)
 
+
+
+\## Documentation
+
+
+
+\- \[Project Report](docs/project-report.pdf)
+
+
+
+\## Hand-Drawn System Schema
+
+
+
+!\[Hand-Drawn System Schema](docs/handdrawn-schema.jpg)
+

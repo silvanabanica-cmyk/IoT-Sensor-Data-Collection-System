@@ -20,7 +20,7 @@ A cloud-based IoT platform for collecting, storing, retrieving, and processing s
 
 ## Documentation
 
-- [Project Report](docs/IoT Project Guidelines.pdf)
+- [Project Report](docs/IoT_Project_Guidelines.pdf)
 
 ## System Schema
 

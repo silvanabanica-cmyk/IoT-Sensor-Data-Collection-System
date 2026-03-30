@@ -3,14 +3,25 @@
 This project is a cloud-based IoT platform that collects, stores, and processes sensor data.
 
 ## Technologies
-- Flask
-- SQLite
-- Docker
-- Hadoop Streaming
+
+* Flask
+* SQLite
+* Docker
+* Hadoop Streaming
 
 ## Features
-- Store sensor measurements
-- Retrieve sensor data by time interval
-- Export data by sensor type
-- Add and delete sensor types
-- Distributed aggregation with Hadoop
+
+* Store sensor measurements
+* Retrieve sensor data by time interval
+* Export data by sensor type
+* Add and delete sensor types
+* Distributed aggregation with Hadoop
+
+
+
+\## Hand-Drawn System Schema
+
+
+
+!\[Hand-Drawn System Schema](docs/handdrawn-schema.jpg)
+
